@@ -1,0 +1,9 @@
+{
+  "name": "hexo-theme-bootstrap-blog",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "hexo-tag-bootstrap": "^0.2.2",
+    "hexo-tag-fontawesome": "^1.1.0"
+  }
+}
