@@ -3,22 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>為什麼我們需要WSGI? | Anna&#39;s Blog</title>
+  <title>為什麼我們知道WSGI? | Anna&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果使用Python Flask 框架寫了一個網站，而現在希望它可以部署上下線，得要知道WSGI。">
+  <meta name="description" content="使用Python Flask 框架寫了一個網站，然後現在需要部署到伺服器，得要知道WSGI…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="為什麼我們需要WSGI?">
+<meta property="og:title" content="為什麼我們知道WSGI?">
 <meta property="og:url" content="https://anna0118.github.io/annachu-blog/2024/04/02/wsgi-and-wsgi-server/index.html">
 <meta property="og:site_name" content="Anna&#39;s Blog">
-<meta property="og:description" content="如果使用Python Flask 框架寫了一個網站，而現在希望它可以部署上下線，得要知道WSGI。">
+<meta property="og:description" content="使用Python Flask 框架寫了一個網站，然後現在需要部署到伺服器，得要知道WSGI…">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://r2.easyimg.io/bh8mgaun3/%E6%88%AA%E5%9C%96_2024-04-02_%E4%B8%8B%E5%8D%886.36.23.png">
+<meta property="og:image" content="https://r2.easyimg.io/fyrunws04/development_server.png">
 <meta property="article:published_time" content="2024-04-02T09:37:30.000Z">
-<meta property="article:modified_time" content="2024-04-02T09:56:42.839Z">
+<meta property="article:modified_time" content="2024-04-02T13:45:16.128Z">
 <meta property="article:author" content="Anna Chu">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Deploy">
-<meta property="article:tag" content="Python Flask">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://r2.easyimg.io/bh8mgaun3/%E6%88%AA%E5%9C%96_2024-04-02_%E4%B8%8B%E5%8D%886.36.23.png">
   
     <link rel="alternate" href="/annachu-blog/atom.xml" title="Anna&#39;s Blog" type="application/atom+xml">
   
@@ -89,7 +91,7 @@
     
   
     <h1 class="article-title" itemprop="name">
-      為什麼我們需要WSGI?
+      為什麼我們知道WSGI?
     </h1>
   
 
@@ -109,9 +111,34 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果使用Python Flask 框架寫了一個網站，而現在希望它可以部署上下線，得要知道WSGI。</p>
+        <p>使用<strong>Python Flask</strong> 框架寫了一個網站，然後現在需要<strong>部署</strong>到伺服器，得要知道WSGI…</p>
 <span id="more"></span>
 
+<h4 id="🔹-什麼是-WSGI"><a href="#🔹-什麼是-WSGI" class="headerlink" title="🔹 什麼是 WSGI?"></a>🔹 什麼是 WSGI?</h4><p>WSGI，全稱 Web Server Gateway Interface，或者 Python Web Server Gateway Interfacee，，是一種協議規範。它定義了 Web 伺服器與基於 Python 的應用程式之間的的接口。換句話說，WSGI 為 Web 應用和 Web 伺服器提供了一種通用的語言，使它們能夠相互理解和溝通。 </p>
+<p><font size=2.5px color=#808080> 補充：<a target="_blank" rel="noopener" href="https://peps.python.org/pep-0333/">PEP 333</a> 是 Python 的一個提案，提出 WSGI 的規範，促使 Python 在 Web 開發領域的應用和發展。</font></p>
+<h4 id="🔹-WSGI-和-WSGI-server有不一樣嗎？"><a href="#🔹-WSGI-和-WSGI-server有不一樣嗎？" class="headerlink" title="🔹 WSGI 和 WSGI server有不一樣嗎？"></a>🔹 WSGI 和 WSGI server有不一樣嗎？</h4><p>WSGI 跟 WSGI server 這兩個名詞常常會搞混。</p>
+<ul>
+<li>WSGI 是協議規範。</li>
+<li>WSGI server 是遵照 WSGI 規範的 server，像是 Gunicorn, uWSGI。</li>
+</ul>
+<p><img src="https://r2.easyimg.io/bh8mgaun3/%E6%88%AA%E5%9C%96_2024-04-02_%E4%B8%8B%E5%8D%886.36.23.png" alt="Gunicorn的官網介紹也說明是 Python WSGI server"></p>
+<h4 id="🔹-為什麼需要Guicorn"><a href="#🔹-為什麼需要Guicorn" class="headerlink" title="🔹 為什麼需要Guicorn ?"></a>🔹 為什麼需要Guicorn ?</h4><p>當我們使用 Flask 或 Django 這樣的 Web 框架開發應用時，通常會借助於框架提供的簡易伺服器來快速啟動和運行開發環境。但這些內建的伺服器真的適合生產環境嗎？</p>
+<blockquote>
+<p>注意： 使用 Flask 框架內建的伺服器時，常常會看到一個警告，提醒我們它主要是為了開發目的而設計的。</p>
+</blockquote>
+<p><img src="https://r2.easyimg.io/fyrunws04/development_server.png" alt="使用 Flask 框架內建的伺服器，可以看到Ｗarning"></p>
+<p>這是因為內建的伺服器缺乏處理大量連線的能力。這時，Gunicorn 就扮演了重要的角色。作為一個遵循 WSGI 協議的伺服器，Gunicorn 不僅提供了更強大的性能和靈活性，還能夠確保應用在生產環境下的穩定運行。</p>
+<h4 id="🔹-為什麼又需要-Nginx"><a href="#🔹-為什麼又需要-Nginx" class="headerlink" title="🔹 為什麼又需要 Nginx ?"></a>🔹 為什麼又需要 Nginx ?</h4><p>Nginx 可以提高 Web Server 提高網站效率和處理請求的能力：</p>
+<ul>
+<li>緩存：幫助“存放”網站上經常使用的資料（比如圖片、CSS 樣式表和 JavaScript 檔案），讓使用者訪問網站時能快速獲得這些資料，減少了等待時間和網絡流量消耗。</li>
+<li>負載平衡：想象一個超市開設了多個收銀台來應對高峰期的客流量，Nginx 確保每個伺服器都能在承受能力範圍內工作，可以加速響應時間，提高用戶體驗。</li>
+<li>反向代理：扮演中間人角色，幫助處理和分配來自外部的請求到內部的一個或多個伺服器，增加了額外的安全層，因為外部請求並不直接與內部系統互動。</li>
+</ul>
+<p>✏️ 總結：</p>
+<ul>
+<li>WSGI 確保 Python web伺服器能在能運行時更穩定。</li>
+<li>Nginx 透過緩存和反向代理提高訪問速度和處理能力，同時增加安全保護。</li>
+</ul>
 
       
     </div>
@@ -122,12 +149,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://anna0118.github.io/annachu-blog/2024/04/02/wsgi-and-wsgi-server/" data-id="clui7j7rl00035b4lffcw058o" class="article-share-link">
+      <a data-url="https://anna0118.github.io/annachu-blog/2024/04/02/wsgi-and-wsgi-server/" data-id="cluifm6is00053q4lbr2p5ihx" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Deploy/" rel="tag">Deploy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Python-Flask/" rel="tag">Python Flask</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Deploy/" rel="tag">Deploy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a></li></ul>
 
 
     </footer>
@@ -171,7 +198,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Deploy/" rel="tag">Deploy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Hexo/" rel="tag">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Python-Flask/" rel="tag">Python Flask</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Deploy/" rel="tag">Deploy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Hexo/" rel="tag">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -180,7 +207,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/annachu-blog/tags/Deploy/" style="font-size: 10px;">Deploy</a> <a href="/annachu-blog/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/annachu-blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/annachu-blog/tags/Python-Flask/" style="font-size: 10px;">Python Flask</a>
+      <a href="/annachu-blog/tags/Deploy/" style="font-size: 10px;">Deploy</a> <a href="/annachu-blog/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/annachu-blog/tags/Python/" style="font-size: 10px;">Python</a>
     </p>
   </div>
 
@@ -199,7 +226,7 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="/annachu-blog/2024/04/02/wsgi-and-wsgi-server/">為什麼我們需要WSGI?</a>
+          <a href="/annachu-blog/2024/04/02/wsgi-and-wsgi-server/">為什麼我們知道WSGI?</a>
         </li>
       
         <li>
