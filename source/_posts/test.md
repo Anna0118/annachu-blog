@@ -2,11 +2,45 @@
 title: 從輸入網址列到畫面出現，經歷了哪些過程？
 # date: {{ date }}
 tags: 
-    - https
-    - url
-    - 原來要多個tag是這樣
-    - 但是可能每次編輯過就會產生新的tag，刪除後不會消失，所以要hexo clean hexo generate
+    - Hexo
 ---
+
+
+
+要開始重新啟動部落格了 以下步驟
+
+<!-- more -->
+## Quick Start
+
+### Create a new post
+
+``` bash
+hexo new "My New Post"
+```
+
+More info: [Writing](https://hexo.io/docs/writing.html)
+
+### Run server
+
+``` bash
+hexo server
+```
+
+More info: [Server](https://hexo.io/docs/server.html)
+
+### Generate static files
+
+``` bash
+hexo generate
+```
+
+More info: [Generating](https://hexo.io/docs/generating.html)
+
+### Deploy to remote sites
+
+``` bash
+hexo deploy
+```
 
 這週的任務，是撰寫一篇長篇文章。
 題目是：從輸入網址列到畫面出現，經歷了哪些過程？

@@ -1,4 +1,5 @@
 <div class="sidebar-module sidebar-module-inset">
   <h4>About</h4>
-  <%- theme.about_widget_content %>
+  <!-- <%- theme.about_widget_content %> -->
+  <%- site.pages['data'].find(function(p) { return p.path==='about/index.html' ; }).content %>
 </div>

@@ -28,6 +28,11 @@ More info: [Server](https://hexo.io/docs/server.html)
 
 ### Generate static files
 
+```bash
+$ hexo clean 
+
+```
+
 ``` bash
 $ hexo generate
 ```
