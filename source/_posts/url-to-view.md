@@ -2,51 +2,14 @@
 title: 從輸入網址列到畫面出現，經歷了哪些過程？
 # date: {{ date }}
 tags: 
-    - Hexo
+    - http
+    - url
 ---
 
-
-
-要開始重新啟動部落格了 以下步驟
-
-<!-- more -->
-## Quick Start
-
-### Create a new post
-
-``` bash
-hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-hexo deploy
-```
-
-這週的任務，是撰寫一篇長篇文章。
 題目是：從輸入網址列到畫面出現，經歷了哪些過程？
-撰寫文章時，請附上參考的文章連結。 
 
 <!-- more -->
+撰寫文章時，請附上參考的文章連結。
 
 不過不用擔心，會拆分成以下的小任務
 
