@@ -12,7 +12,7 @@ tags:
 
 ### 🔹HTTP
 
-`HTTP` 全名 超文本傳輸協定（HyperText Transfer Protocol），內容規範了客戶端請求與伺服器回應的標準。 定義了多種類型的請求和回應。例如，如果你想要從一個網站檢視一些資料，您會傳送 HTTP GET 請求。如果您想要傳送一些資訊，例如填寫聯絡表單，則會傳送 HTTP POST 請求
+`HTTP` 全名 `超文本傳輸協定（HyperText Transfer Protocol)`，內容規範了客戶端請求與伺服器回應的標準。 定義了多種類型的請求和回應。例如，如果你想要從一個網站檢視一些資料，您會傳送 HTTP GET 請求。如果您想要傳送一些資訊，例如填寫聯絡表單，則會傳送 HTTP POST 請求
 
 同樣，伺服器以數字代碼和資料的形式，傳送不同類型的 HTTP 回應。以下是一些範例：
 
@@ -29,7 +29,7 @@ Web 端與 Server 端進行通訊是使用"明文"的方式，因為 HTTP 協議
 ![Google 的網址使用的是 HTTPS 協定](https://r2.easyimg.io/g87oyfk6m/google_https.png)
 
 
-`HTTPS` 全名 超文本傳輸安全協定，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 SSL/TLS 進行加密，在 HTTP 之上定義了相對安全的資料傳輸方法。
+`HTTPS` 全名 `超文本傳輸安全協定（HyperText Transfer Protocol Secure)`，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 SSL/TLS 進行加密，在 HTTP 之上定義了相對安全的資料傳輸方法。
 
 HTTPS 網站需向獨立的憑證認證機構（CA）申請 SSL/TLS 憑證。在網站與瀏覽器交換資料前，會先共享這份憑證來建立信任關係。SSL 憑證中含有加密信息，確保資料交換的安全。
 
