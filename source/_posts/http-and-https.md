@@ -3,14 +3,12 @@ title: Http 和 Https：差一個「s」這麼重要？
 date: 2024-04-03 11:10:30
 tags:
     - http
-    - https
 ---
 
 朋友寫了一封派對邀請函，周六下午在他家舉辦派對（HTTP）。但是信件被一位鄰居攔截且竄改了時間...
 
 <!-- more -->
-
-![Google 的網址使用的是 HTTPS 協定](https://r2.easyimg.io/g87oyfk6m/google_https.png)
+<img src="https://i.imgur.com/21yhcHI.png" width="70%" height="30%">
 
 ### 🔹HTTP
 
@@ -27,6 +25,9 @@ Web 端與 Server 端進行通訊是使用"明文"的方式，因為 HTTP 協議
 為了防止信息被竄改的風險，可以用一種特殊的信封，就是 `HTTPS`。這種信封配備了專用的鎖，只有發送者和接收者持有匹配的鑰匙，因此即便信件在途中被人攔截，沒有鑰匙的人也無法打開它，從而保障了信件的安全性。
 
 ### 🔹HTTPs
+
+![Google 的網址使用的是 HTTPS 協定](https://r2.easyimg.io/g87oyfk6m/google_https.png)
+
 
 `HTTPS` 全名 超文本傳輸安全協定，那個 S 就是 Secure 的意思；HTTPS 透過 HTTP 進行通訊，但通訊過程使用 SSL/TLS 進行加密，在 HTTP 之上定義了相對安全的資料傳輸方法。
 

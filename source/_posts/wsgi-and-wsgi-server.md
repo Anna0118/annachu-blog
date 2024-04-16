@@ -3,12 +3,14 @@ title: Flask 開發完後，進入部署？還得解鎖 WSGI 與 Nginx
 date: 2024-04-02 17:37:30
 tags: 
     - Python
-    - Deploy
+    - web server
 ---
 
 使用**Python Flask** 框架寫了一個網站，然後現在需要**部署**到伺服器，得要知道WSGI...
 
 <!-- more -->
+
+![Serve Flask application with Gunicorn Nginx on ubuntu](https://i.imgur.com/jKI0eSF.png)
 
 #### 🔹 什麼是 WSGI?
 
@@ -27,9 +29,9 @@ WSGI 全名是 Web Server Gateway Interface，是制訂網站伺服器 (Web serv
 
 WSGI 跟 WSGI server 這兩個名詞常常會搞混：
 - WSGI 是協議規範。
-- WSGI server 是遵照 WSGI 規範的 server，像是 Gunicorn, uWSGI。
+- WSGI server 是遵照 WSGI 規範的 server，像是 [Gunicorn](https://gunicorn.org/), uWSGI。
 
-![Gunicorn的官網介紹也說明是 Python WSGI server](https://r2.easyimg.io/bh8mgaun3/截圖_2024-04-02_下午6.36.23.png)
+![Gunicorn的官網介紹說明是 Python WSGI server](https://r2.easyimg.io/bh8mgaun3/截圖_2024-04-02_下午6.36.23.png)
 
 > #### 🔹 WSGI vs. ASGI 
 > ASGI 全名是 Asynchronous Server Gateway Interface
