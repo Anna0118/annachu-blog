@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一文看懂 API、Restful 與 Restful API | Anna&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大型語言模型（LLM）、GenAI 和 ChatGPT 等熱門技術詞彙已經成為我們日常對話中的常客，幾乎人人都在間接或直接的使用它們。為什麼？ 企業發布了 「API」 後，我們又能站在巨人的肩膀上，開發更強大的產品和服務…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文看懂 API、Restful 與 Restful API">
+<meta property="og:url" content="https://anna0118.github.io/annachu-blog/2024/04/17/restful-api/index.html">
+<meta property="og:site_name" content="Anna&#39;s Blog">
+<meta property="og:description" content="大型語言模型（LLM）、GenAI 和 ChatGPT 等熱門技術詞彙已經成為我們日常對話中的常客，幾乎人人都在間接或直接的使用它們。為什麼？ 企業發布了 「API」 後，我們又能站在巨人的肩膀上，開發更強大的產品和服務…">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/x5z9JtB.png">
+<meta property="og:image" content="https://i.imgur.com/sJb3TlS.png">
+<meta property="article:published_time" content="2024-04-17T03:55:50.000Z">
+<meta property="article:modified_time" content="2024-04-19T16:10:50.747Z">
+<meta property="article:author" content="Anna Chu">
+<meta property="article:tag" content="Http">
+<meta property="article:tag" content="API">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/x5z9JtB.png">
+  
+    <link rel="alternate" href="/annachu-blog/atom.xml" title="Anna&#39;s Blog" type="application/atom+xml">
+  
+  
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+<link rel="stylesheet" href="/annachu-blog/css/styles.css">
+
+  
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/annachu-blog/index.html">Home</a></li>
+        
+          <li><a class=""
+                 href="/annachu-blog/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">Anna&#39;s Blog</h1>
+  
+  <p class="lead blog-description">原來要修正header.egs的code，要變成config.subtitle才會顯示副標</p>
+    
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-restful-api" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      一文看懂 API、Restful 與 Restful API
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/annachu-blog/2024/04/17/restful-api/" class="article-date"><time datetime="2024-04-17T03:55:50.000Z" itemprop="datePublished">2024-04-17</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大型語言模型（LLM）、GenAI 和 ChatGPT 等熱門技術詞彙已經成為我們日常對話中的常客，幾乎人人都在間接或直接的使用它們。為什麼？ 企業發布了 「API」 後，我們又能站在巨人的肩膀上，開發更強大的產品和服務…</p>
+<span id="more"></span>
+
+<p><img src="https://i.imgur.com/x5z9JtB.png" alt="OpenAI 提供如何使用 API 的 Document"></p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p><strong>是什麼？</strong> </p>
+<p>API（Application Programming Interface，應用程式介面），簡單理解就是，我們不需要知道它實際如何運作，只要知道怎麼使用它。 就算不懂模型如何製作出來的，我更在意這個模型可以幫助我們在產品上的加值。因此會更在意：「輸入的方法」以及「輸出的結果」。</p>
+<p><strong>如何運作？</strong></p>
+<p>還是要簡單理解一下 HTTP，全名 Hypertext Transfer Protocol（超文本傳輸協定），是一種傳輸協定，需要用一定規格的語言來溝通。HTTP 就是用戶端和伺服器端之間的傳輸協定，如果用生活例子來理解會更好懂：</p>
+<p>「去手搖店點一杯飲料」，步驟是這樣：</p>
+<ul>
+<li><p>使用者打開瀏覽器，輸入網址按下 enter （我跟店員點了珍珠奶茶）</p>
+</li>
+<li><p>伺服器收到瀏覽器的 request，檢查該網址是否存在（店員先確定珍珠奶茶還沒賣完）</p>
+</li>
+<li><p>伺服器發送 response 給客戶端（店員把珍珠奶茶做好之後，拿給我）</p>
+</li>
+</ul>
+<p>如果你也是手搖控，以上可能有其他存在情境，對吧？ 例如，賣完了、需要無糖去冰、更改或取消等，這些規範包含：</p>
+<ul>
+<li><p>Method：包括 GET（獲取）、POST（提交）、PUT（更新）、DELETE（刪除），也就是 CRUD。告訴伺服器對資源執行的具體操作，就像你在手搖店，你可能要點餐、取消點餐或更改訂單等。</p>
+</li>
+<li><p>Status code：告訴客戶端請求是成功還是失敗，以及具體的失敗原因。常見的狀態碼包括 200（成功）、404（未找到）、500（伺服器錯誤）。這如同店員告訴你「珍珠奶茶準備好了」或「珍珠奶茶賣完了」。</p>
+</li>
+<li><p>Headers：HTTP request 和 response 也包含例如內容類型 (Content-Type)，描述了傳送數據的格式（如 application&#x2F;json）。類似於你向店員說對飲料的特殊要求。</p>
+</li>
+<li><p>Stateless：HTTP 是一個無狀態的協議，是指每個請求之間是獨立的，伺服器不會記住之前的請求。就像每次去飲料店，員工還是要問你要喝什麼。如果需要持續追蹤顧客的偏好，飲料店需要額外的記錄系統；同理，網站會使用 cookies 或 session 來「記住」用戶的設定或登入狀態。</p>
+</li>
+</ul>
+<hr>
+
+<h3 id="Restful-Restful-API"><a href="#Restful-Restful-API" class="headerlink" title="Restful &amp; Restful API"></a>Restful &amp; Restful API</h3><p>REST，全名 Representational State Transfer (表現層狀態轉移)，它是一種「設計風格」，因此，以此規範設計的 API，稱為 RESTful API，又為遵循著 REST 架構風格的 API。</p>
+<p>描述了如何實現 Web API 的架構，基於 HTTP 協定，用來建立分散式系統，並支援多種程式語言，他的優點包含：</p>
+<ul>
+<li><p>可擴展性：系統無需保留 Client 狀態，因此可以提高擴展效能。就像連鎖快餐店不需要記住每位客人的喜好，也能應對客流增加。</p>
+</li>
+<li><p>靈活性：由於 Client 與 Server 完全分離，代表開發團隊可以只更新網站的前端或後端。</p>
+</li>
+<li><p>獨立性：開發者可以使用不同的程式語來寫，而不會影響API的整體設計。就像使用樂高積木搭建，可以選擇不同顏色和形狀的積木。</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/sJb3TlS.png" alt="發出 Request 包含 URL endpoint 和 HTTP verb 以及回傳 JSON 格式"></p>
+<ol>
+<li><p>URL endpoint : 這是一個網址連結，代表我們想訪問的資源。</p>
+</li>
+<li><p>HTTP verb : 對 URL endpoint 的資源進行何種操作。</p>
+</li>
+<li><p>Status codes : 伺服器接收 RESTful HTTP 請求後，除請求資源外，會回傳 HTTP 狀態碼。</p>
+</li>
+</ol>
+<p>舉例來說，如果你在使用一個購物網站的 API 來查詢產品，一個 Restful 的 API 可能會這樣設計：</p>
+<table>
+<thead>
+<tr>
+<th>HTTP verb</th>
+<th>URL endpoint</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>&#x2F;products</td>
+<td>獲取所有商品列表</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>&#x2F;products&#x2F;{id}</td>
+<td>獲取特定商品資訊</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>&#x2F;products</td>
+<td>新增商品</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>&#x2F;products&#x2F;{id}</td>
+<td>更新特定商品資訊</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>&#x2F;products&#x2F;{id}</td>
+<td>刪除特定商品</td>
+</tr>
+</tbody></table>
+<hr>
+
+<h3 id="你知道-Postman-嗎？"><a href="#你知道-Postman-嗎？" class="headerlink" title="你知道 Postman 嗎？"></a>你知道 Postman 嗎？</h3><p><a target="_blank" rel="noopener" href="https://www.postman.com/product/what-is-postman/">Postman</a> 是開發與測試 API 的必備工具！無論是進行基本的 CRUD API 測試，還是需要包含 Header 資訊的複雜請求（比如帶 token 的身份驗證），當然也可以測試上傳&#x2F;下載檔案 API。</p>
+<p>References:<br><a target="_blank" rel="noopener" href="https://www.explainthis.io/zh-hant/swe/restful-api">https://www.explainthis.io/zh-hant/swe/restful-api</a><br><a target="_blank" rel="noopener" href="https://mannhowie.com/rest-api">https://mannhowie.com/rest-api</a><br><a target="_blank" rel="noopener" href="https://www.postman.com/what-is-an-api/#benefits-of-apis">https://www.postman.com/what-is-an-api/#benefits-of-apis</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://anna0118.github.io/annachu-blog/2024/04/17/restful-api/" data-id="clv6vn0nn0005j84l7wom0xct" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Http/" rel="tag">Http</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/annachu-blog/2024/04/16/leetcode-128/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Leetcode [128. Longest Consecutive Sequence]</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <!-- <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+ -->
+  <p>I’m Anna，後端工程師，<br>喜歡喝早餐店奶茶。<br>跑過人生第一場全馬，<br>也正在前往全端工程師的路上。</p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/API/" rel="tag">API</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Http/" rel="tag">Http</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Leetcode/" rel="tag">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Url/" rel="tag">Url</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/web-server/" rel="tag">web server</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/annachu-blog/tags/API/" style="font-size: 10px;">API</a> <a href="/annachu-blog/tags/Http/" style="font-size: 20px;">Http</a> <a href="/annachu-blog/tags/Leetcode/" style="font-size: 10px;">Leetcode</a> <a href="/annachu-blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/annachu-blog/tags/Url/" style="font-size: 10px;">Url</a> <a href="/annachu-blog/tags/web-server/" style="font-size: 10px;">web server</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/archives/2024/04/">April 2024</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/archives/2024/01/">January 2024</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/annachu-blog/2024/04/17/restful-api/">一文看懂 API、Restful 與 Restful API</a>
+        </li>
+      
+        <li>
+          <a href="/annachu-blog/2024/04/16/leetcode-128/">Leetcode [128. Longest Consecutive Sequence]</a>
+        </li>
+      
+        <li>
+          <a href="/annachu-blog/2024/04/03/http-and-https/">Http 和 Https：差一個「s」這麼重要？</a>
+        </li>
+      
+        <li>
+          <a href="/annachu-blog/2024/04/02/wsgi-and-wsgi-server/">Flask 開發完後，進入部署？還得解鎖 WSGI 與 Nginx</a>
+        </li>
+      
+        <li>
+          <a href="/annachu-blog/2024/01/25/url-to-view/">從輸入網址列到畫面出現，經歷了哪些過程？</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2024 Anna Chu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/annachu-blog/js/script.js"></script>
+
+
+</body>
+</html>

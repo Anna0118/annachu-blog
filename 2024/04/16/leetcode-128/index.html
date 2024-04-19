@@ -5,18 +5,18 @@
   
   <title>Leetcode [128. Longest Consecutive Sequence] | Anna&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="假設手上握有一份使用者的日常打卡數據。現在來了個任務：找出使用者連續打卡的最長天數，利於數據分析來改善使用者經驗或作為優化其中策略…">
+  <meta name="description" content="使用者的日常打卡數據不只是一些數字，它們透露了用戶的行為模式和參與程度。如果計算出連續打卡的最長天數，也許能指引我們開發出更有效的激勵策略…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode [128. Longest Consecutive Sequence]">
 <meta property="og:url" content="https://anna0118.github.io/annachu-blog/2024/04/16/leetcode-128/index.html">
 <meta property="og:site_name" content="Anna&#39;s Blog">
-<meta property="og:description" content="假設手上握有一份使用者的日常打卡數據。現在來了個任務：找出使用者連續打卡的最長天數，利於數據分析來改善使用者經驗或作為優化其中策略…">
+<meta property="og:description" content="使用者的日常打卡數據不只是一些數字，它們透露了用戶的行為模式和參與程度。如果計算出連續打卡的最長天數，也許能指引我們開發出更有效的激勵策略…">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.imgur.com/sY2ZBvn.jpeg">
 <meta property="article:published_time" content="2024-04-16T06:25:39.000Z">
-<meta property="article:modified_time" content="2024-04-16T08:49:05.287Z">
+<meta property="article:modified_time" content="2024-04-17T04:56:54.351Z">
 <meta property="article:author" content="Anna Chu">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.imgur.com/sY2ZBvn.jpeg">
   
@@ -109,38 +109,39 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>假設手上握有一份使用者的日常打卡數據。現在來了個任務：<br>找出使用者連續打卡的最長天數，利於數據分析來改善使用者經驗或作為優化其中策略…</p>
-<img src="https://i.imgur.com/sY2ZBvn.jpeg" width="70%" height="50%">
-
+        <p>使用者的日常打卡數據不只是一些數字，它們透露了用戶的行為模式和參與程度。<br>如果計算出連續打卡的最長天數，也許能指引我們開發出更有效的激勵策略…</p>
 <span id="more"></span>
 
-<hr>
+<img src="https://i.imgur.com/sY2ZBvn.jpeg" width="70%" height="50%">
+<br>
 
 <p>刷題時心中總有個 OS : 這些演算法和數據結構在實際工作中真的會用到嗎？</p>
-<p>手上的數據是一堆日期，表示用戶打卡的日子(假設以365天計算)。問題的關鍵在於如何有效地找出數列中最長的連續元素，也就是此 “最長連續序列” 題目！</p>
+<p>這篇將帶你用情境來了解題目！</p>
 <div class="bs-callout bs-callout-info"><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-consecutive-sequence/description/">128. Longest Consecutive Sequence</a><br>🧡 Medium<br>Topics: <code>Array</code> <code>HashTable</code> <code>UnionFind</code></p>
 </div>
 
-<h4 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路"></a>解題思路</h4><p>假設數據是一系列表示使用者打卡日的日期時，這些日期是在一年的範圍內（即365天），最直觀的方法可能是對日期進行排序，然後逐一檢查來確定連續的最長天數。</p>
+<h4 id="解題思路"><a href="#解題思路" class="headerlink" title="解題思路 :"></a>解題思路 :</h4><p>假設數據是一系列表示使用者打卡日的日期時，這些日期是在一年的範圍內（即365天），最直觀的方法可能是對日期進行排序，然後逐一檢查來確定連續的最長天數。</p>
 <p>確實這是一個很好的開始，因為它讓我們能夠直接看到日期之間的間隔。不過這種方法的時間複雜度為 <code>O(n log n)</code>，主要是由於排序步驟的需求。對於特別大的數據集，這可能會變得效率低下。</p>
 <p>題目指出需要使用 <code>O(n)</code> 的方法來解決這一問題。請我們寫出一種更為高效的方法，讓整體處理的時間複雜度線性增長。這樣就可以更快地得到結果，且不會隨數據量的增加而顯著增加計算時間。</p>
-<p>思考步驟:</p>
-<ol>
+<hr>
+
+<h4 id="思考步驟"><a href="#思考步驟" class="headerlink" title="思考步驟 :"></a>思考步驟 :</h4><ol>
 <li>先檢查陣列是否為空值和去除重複元素</li>
 <li>假設當前連續長度為 1 (至少陣列會有一個元素)</li>
 <li>遍歷陣列內的元素，開始計算連續序列長度</li>
 <li>檢查並更新最終的連續序列長度</li>
 <li>返回最大連續序列長度</li>
 </ol>
-<h4 id="解題程式碼"><a href="#解題程式碼" class="headerlink" title="解題程式碼"></a>解題程式碼</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">longestConsecutive</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="comment"># 如果列表為空，則返回0</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用集合去除重複元素</span></span><br><span class="line">    nums_set = <span class="built_in">set</span>(nums)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化變數</span></span><br><span class="line">    max_length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍歷集合中的每個數字</span></span><br><span class="line">    <span class="comment"># &#123;0,3,7,2,5,8,4,6,1&#125;</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> nums_set:</span><br><span class="line">        <span class="comment"># 檢查是否可以將當前數字作為連續序列的起點</span></span><br><span class="line">        <span class="comment"># 假設 0 -1 = -1，而 -1 不在陣列</span></span><br><span class="line">        <span class="keyword">if</span> num - <span class="number">1</span> <span class="keyword">not</span> <span class="keyword">in</span> nums_set:</span><br><span class="line">            current_num = num</span><br><span class="line">            current_length = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 持續檢查後續數字是否存在，就可開始建立連續序列</span></span><br><span class="line">            <span class="keyword">while</span> current_num + <span class="number">1</span> <span class="keyword">in</span> nums_set:</span><br><span class="line">                current_num += <span class="number">1</span></span><br><span class="line">                current_length += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 更新找到的最長連續序列長度</span></span><br><span class="line">            max_length = <span class="built_in">max</span>(max_length, current_length)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回最長連續序列的長度</span></span><br><span class="line">    <span class="keyword">return</span> max_length</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假設打卡數據</span></span><br><span class="line">user_data = [<span class="number">0</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">1</span>] // Output: <span class="number">9</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="解題程式碼"><a href="#解題程式碼" class="headerlink" title="解題程式碼 :"></a>解題程式碼 :</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">longestConsecutive</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="comment"># 如果列表為空，則返回0</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用集合去除重複元素</span></span><br><span class="line">    nums_set = <span class="built_in">set</span>(nums)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化變數</span></span><br><span class="line">    max_length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍歷集合中的每個數字</span></span><br><span class="line">    <span class="comment"># &#123;0,3,7,2,5,8,4,6,1&#125;</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> nums_set:</span><br><span class="line">        <span class="comment"># 檢查是否可以將當前數字作為連續序列的起點</span></span><br><span class="line">        <span class="comment"># 假設 0 -1 = -1，而 -1 不在陣列</span></span><br><span class="line">        <span class="keyword">if</span> num - <span class="number">1</span> <span class="keyword">not</span> <span class="keyword">in</span> nums_set:</span><br><span class="line">            current_num = num</span><br><span class="line">            current_length = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 持續檢查後續數字是否存在，就可開始建立連續序列</span></span><br><span class="line">            <span class="keyword">while</span> current_num + <span class="number">1</span> <span class="keyword">in</span> nums_set:</span><br><span class="line">                current_num += <span class="number">1</span></span><br><span class="line">                current_length += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 更新找到的最長連續序列長度</span></span><br><span class="line">            max_length = <span class="built_in">max</span>(max_length, current_length)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回最長連續序列的長度</span></span><br><span class="line">    <span class="keyword">return</span> max_length</span><br><span class="line"></span><br><span class="line"><span class="comment"># 假設打卡數據</span></span><br><span class="line">user_data = [<span class="number">0</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">1</span>] // Output: <span class="number">9</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
 
 <p>除了 Social Media 情境外，還有一些情境也存在：</p>
 <ul>
-<li><p><strong>醫療數據跟蹤:</strong> 追蹤病人的連續治療日或藥物使用日，也許可作為病情監控和治療效果的評估指標。</p>
+<li><p>醫療: 追蹤病人的連續治療日或藥物使用日，也許可作為病情監控和治療效果的評估指標。</p>
 </li>
-<li><p><strong>金融行業應用:</strong> 分析股票或其他金融產品的連續上漲或下跌天數可以幫助投資者做出一些決策。</p>
+<li><p>金融: 分析股票或其他金融產品的連續上漲或下跌天數可以幫助投資者做出一些決策。</p>
 </li>
-<li><p><strong>教育與學習分析:</strong> 分析學生的連續學習天數，可以幫助教育者評估學生的學習習慣和課程的吸引力。</p>
+<li><p>教育: 分析學生的連續學習天數，可以幫助教育者評估學生的學習習慣和課程的吸引力。</p>
 </li>
 </ul>
 
@@ -153,12 +154,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://anna0118.github.io/annachu-blog/2024/04/16/leetcode-128/" data-id="clv289d5p0002om4le9rphitx" class="article-share-link">
+      <a data-url="https://anna0118.github.io/annachu-blog/2024/04/16/leetcode-128/" data-id="clv6vn0nh0002j84lg3vt6436" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/Leetcode/" rel="tag">Leetcode</a></li></ul>
 
 
     </footer>
@@ -174,6 +175,13 @@
     </a>
   </li>
   
+  
+  <li role="presentation">
+    <a href="/annachu-blog/2024/04/17/restful-api/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">一文看懂 API、Restful 與 Restful API</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
   
 </ul>
 
@@ -202,7 +210,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/http/" rel="tag">http</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/leetcode/" rel="tag">leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/url/" rel="tag">url</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/web-server/" rel="tag">web server</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list" itemprop="keywords"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/API/" rel="tag">API</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Http/" rel="tag">Http</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Leetcode/" rel="tag">Leetcode</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Python/" rel="tag">Python</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/Url/" rel="tag">Url</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/tags/web-server/" rel="tag">web server</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -211,7 +219,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/annachu-blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/annachu-blog/tags/http/" style="font-size: 20px;">http</a> <a href="/annachu-blog/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/annachu-blog/tags/url/" style="font-size: 10px;">url</a> <a href="/annachu-blog/tags/web-server/" style="font-size: 10px;">web server</a>
+      <a href="/annachu-blog/tags/API/" style="font-size: 10px;">API</a> <a href="/annachu-blog/tags/Http/" style="font-size: 20px;">Http</a> <a href="/annachu-blog/tags/Leetcode/" style="font-size: 10px;">Leetcode</a> <a href="/annachu-blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/annachu-blog/tags/Url/" style="font-size: 10px;">Url</a> <a href="/annachu-blog/tags/web-server/" style="font-size: 10px;">web server</a>
     </p>
   </div>
 
@@ -219,7 +227,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/archives/2024/04/">April 2024</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/archives/2024/01/">January 2024</a><span class="sidebar-module-list-count">2</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/archives/2024/04/">April 2024</a><span class="sidebar-module-list-count">4</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/annachu-blog/archives/2024/01/">January 2024</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -228,6 +236,10 @@
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/annachu-blog/2024/04/17/restful-api/">一文看懂 API、Restful 與 Restful API</a>
+        </li>
       
         <li>
           <a href="/annachu-blog/2024/04/16/leetcode-128/">Leetcode [128. Longest Consecutive Sequence]</a>
@@ -243,10 +255,6 @@
       
         <li>
           <a href="/annachu-blog/2024/01/25/url-to-view/">從輸入網址列到畫面出現，經歷了哪些過程？</a>
-        </li>
-      
-        <li>
-          <a href="/annachu-blog/2024/01/23/hello-word/">Hello World</a>
         </li>
       
     </ul>
