@@ -2,7 +2,7 @@
 title: Flask 開發完後，進入部署？還得解鎖 WSGI 與 Nginx
 date: 2024-04-02 17:37:30
 tags: 
-    - Python
+    - python
     - web server
 ---
 
