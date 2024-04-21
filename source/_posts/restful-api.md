@@ -2,8 +2,8 @@
 title: 一文看懂 API、Restful 與 Restful API 
 date: 2024-04-17 11:55:50
 tags:
-    - api
     - http
+categories: Web
 ---
 
 大型語言模型（LLM）、GenAI 和 ChatGPT 等熱門技術詞彙已經成為我們日常對話中的常客，幾乎人人都在間接或直接的使用它們。為什麼？ 企業發布了 「API」 後，我們又能站在巨人的肩膀上，開發更強大的產品和服務...

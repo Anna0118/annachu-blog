@@ -1,8 +1,7 @@
 ---
 title: Leetcode [128. Longest Consecutive Sequence]
 date: 2024-04-16 14:25:39
-tags: 
-    - leetcode
+categories: Leetcode
 ---
 
 使用者的日常打卡數據不只是一些數字，它們透露了用戶的行為模式和參與程度。

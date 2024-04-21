@@ -2,8 +2,8 @@
 title: Flask 開發完後，進入部署？還得解鎖 WSGI 與 Nginx
 date: 2024-04-02 17:37:30
 tags: 
-    - python
-    - web server
+    - flask
+categories: Deploy
 ---
 
 使用**Python Flask** 框架寫了一個網站，然後現在需要**部署**到伺服器，得要知道WSGI...

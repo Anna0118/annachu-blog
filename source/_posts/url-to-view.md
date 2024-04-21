@@ -3,7 +3,7 @@ title: 從輸入網址列到畫面出現，經歷了哪些過程？
 # date: {{ date }}
 tags: 
     - http
-    - url
+categories: Web
 ---
 
 從輸入網址列到畫面出現，經歷了哪些過程？

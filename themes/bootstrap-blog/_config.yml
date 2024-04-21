@@ -3,6 +3,8 @@ navbar_brand: false
 menu:
   Home: index.html
   Archives: archives/
+  # About: about/
+  # categories: categories/
 rss: /atom.xml
 
 # Content
