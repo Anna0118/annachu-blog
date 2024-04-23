@@ -20,7 +20,7 @@ Topics: `String` `Stack`
 
 #### 解題思路
 
-![我的解題思路手繪圖](https://i.imgur.com/pvcRGSS.png)
+![我的解題思路手繪圖，重要觀念為「First in, Last out」](https://i.imgur.com/pvcRGSS.png)
 
 `s = "({}])"`
 
