@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: Leetcode | Anna&#39;s Blog</title>
+  <title>在 Mac 安裝 Docker | Anna&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Anna&#39;s Blog">
-<meta property="og:url" content="https://anna0118.github.io/annachu-blog/categories/Leetcode/index.html">
+  <meta name="description" content="教你在 MacOS 安裝 Docker 簡單幾步驟就能成功…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Mac 安裝 Docker">
+<meta property="og:url" content="https://anna0118.github.io/annachu-blog/2024/05/04/docker-start/index.html">
 <meta property="og:site_name" content="Anna&#39;s Blog">
+<meta property="og:description" content="教你在 MacOS 安裝 Docker 簡單幾步驟就能成功…">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.postimg.cc/YSSTJDpP/2024-05-04-6-18-19.png">
+<meta property="og:image" content="https://i.postimg.cc/tTLBrpCX/2024-05-04-6-58-41.png">
+<meta property="og:image" content="https://i.postimg.cc/MpDrzCtD/2024-05-04-5-58-05.png">
+<meta property="og:image" content="https://i.postimg.cc/8kZ5rccQ/2024-05-04-7-09-16.png">
+<meta property="og:image" content="https://i.postimg.cc/0NYh3VBg/2024-05-04-7-23-27.png">
+<meta property="article:published_time" content="2024-05-04T09:55:12.000Z">
+<meta property="article:modified_time" content="2024-05-04T12:30:27.727Z">
 <meta property="article:author" content="Anna Chu">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.postimg.cc/YSSTJDpP/2024-05-04-6-18-19.png">
   
     <link rel="alternate" href="/annachu-blog/atom.xml" title="Anna&#39;s Blog" type="application/atom+xml">
   
@@ -76,60 +87,102 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/annachu-blog/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
+          <article id="post-docker-start" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/annachu-blog/2024/04/23/leetcode-20/">Leetcode [20. Valid Parentheses]</a>
+    <h1 class="article-title" itemprop="name">
+      在 Mac 安裝 Docker
     </h1>
   
 
 
+  </header>
+
+  <div class="article-meta">
     <div class="article-datetime">
-  <a href="/annachu-blog/2024/04/23/leetcode-20/" class="archive-article-date"><time datetime="2024-04-23T15:43:48.000Z" itemprop="datePublished">April 23rd</time></a>
+  <a href="/annachu-blog/2024/05/04/docker-start/" class="article-date"><time datetime="2024-05-04T09:55:12.000Z" itemprop="datePublished">2024-05-04</time></a>
 </div>
 
-  </header>
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/annachu-blog/categories/Docker/">Docker</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>教你在 MacOS 安裝 Docker 簡單幾步驟就能成功…</p>
+<span id="more"></span>
+
+<p><img src="https://i.postimg.cc/YSSTJDpP/2024-05-04-6-18-19.png" alt="官網寫 Missing 很貼切"></p>
+<p>身為 Mac 的使用者，在下載 App 時，就會選擇 MacOS Desktop 版，然後進行一系列的手動操作來完成下載。</p>
+<p>大多時候會用 Homebrew 來安裝，好處在於它能夠幫助你更有效地管理 macOS 上的應用程式或套件。此外，它還能提供一些尚未支持 macOS 但在 Linux 上可用的配方（Formulae），擴展更多選擇。</p>
+<p>以下步驟將帶你一步步安裝 Docker:</p>
+<h4 id="1-先在-MacOS-安裝-Homebrew"><a href="#1-先在-MacOS-安裝-Homebrew" class="headerlink" title="1. 先在 MacOS 安裝 Homebrew"></a>1. 先在 MacOS 安裝 Homebrew</h4><h4 id="2-透過-Homebrew-安裝-Docker"><a href="#2-透過-Homebrew-安裝-Docker" class="headerlink" title="2. 透過 Homebrew 安裝 Docker"></a>2. 透過 Homebrew 安裝 Docker</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install --cask docker</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>為什麼要用 cask 呢？</p>
+<p>brew cask 是 brew 的其中一個套件，主要是可以透過 homebrew 的 API 來安裝許多 MAC 的 GUI 軟體，所以安裝成功後，可以在 Applicationsa 目錄看到，就像過往將 App 拖曳到 Application 資料夾底下手動安裝的方式，只是幫你省去了這一段！</p>
+</blockquote>
+<p><img src="https://i.postimg.cc/tTLBrpCX/2024-05-04-6-58-41.png" alt="安裝成功"></p>
+<h4 id="3-到-Applicationsa-打開-Docker"><a href="#3-到-Applicationsa-打開-Docker" class="headerlink" title="3. 到 Applicationsa 打開 Docker"></a>3. 到 Applicationsa 打開 Docker</h4><p><img src="https://i.postimg.cc/MpDrzCtD/2024-05-04-5-58-05.png" alt="第一次打開時會需要你的作業系統密碼，以及需要會員註冊登入"></p>
+<h4 id="4-Docker-Desktop"><a href="#4-Docker-Desktop" class="headerlink" title="4. Docker Desktop"></a>4. Docker Desktop</h4><p><img src="https://i.postimg.cc/8kZ5rccQ/2024-05-04-7-09-16.png" alt="目前 Containers 和 Images 是空的"></p>
+<p>以上，是不是很簡單呢 ?</p>
+<p>也可透過 <code>brew list</code> 或  <code>brew list --cast</code> 列出透過 homebrew 安裝的套件或App</p>
+<p><img src="https://i.postimg.cc/0NYh3VBg/2024-05-04-7-23-27.png" alt="使用 brew list --cast 來查看"></p>
+<hr>
+
+<h4 id="我的環境"><a href="#我的環境" class="headerlink" title="我的環境"></a>我的環境</h4><blockquote>
+<p>macOS Sonoma 14.4.1<br>Homebrew 4.2.20</p>
+</blockquote>
+<p>References:</p>
+<ul>
+<li>想要更多 homebrew 更多指令，可以查看 <a target="_blank" rel="noopener" href="https://pjchender.dev/app/homebrew/">PJCHENder-Homebrew筆記</a></li>
+<li>可以從 <a target="_blank" rel="noopener" href="https://formulae.brew.sh/cask/">Homebrew cast</a> 查看有興趣的 Application</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://anna0118.github.io/annachu-blog/2024/05/04/docker-start/" data-id="clvry3tz40000fz2b0nes4vn2" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/docker/" rel="tag">docker</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/annachu-blog/2024/04/23/leetcode-20/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Leetcode [20. Valid Parentheses]</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
 </article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/annachu-blog/2024/04/16/leetcode-128/">Leetcode [128. Longest Consecutive Sequence]</a>
-    </h1>
-  
-
-
-    <div class="article-datetime">
-  <a href="/annachu-blog/2024/04/16/leetcode-128/" class="archive-article-date"><time datetime="2024-04-16T06:25:39.000Z" itemprop="datePublished">April 16th</time></a>
-</div>
-
-  </header>
-</article>
-
-  
-  
-    </div></section>
-  
 
 
 
