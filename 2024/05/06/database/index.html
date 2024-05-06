@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>about | Anna&#39;s Blog</title>
+  <title>SQL and NoSQL 該怎麼選？ | Anna&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hello, I am Anna. 當你感到疲憊時，想著為什麼當初開始。 或是喝一杯珍珠奶茶，然後再去跑個馬拉松。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://anna0118.github.io/annachu-blog/about/index.html">
+  <meta name="description" content="欸欸，你是用 MySQL嗎？還是你覺得應該用MongoDB？啊…還是應該…等等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL and NoSQL 該怎麼選？">
+<meta property="og:url" content="https://anna0118.github.io/annachu-blog/2024/05/06/database/index.html">
 <meta property="og:site_name" content="Anna&#39;s Blog">
-<meta property="og:description" content="Hello, I am Anna. 當你感到疲憊時，想著為什麼當初開始。 或是喝一杯珍珠奶茶，然後再去跑個馬拉松。">
+<meta property="og:description" content="欸欸，你是用 MySQL嗎？還是你覺得應該用MongoDB？啊…還是應該…等等">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-26T10:29:39.000Z">
-<meta property="article:modified_time" content="2024-04-22T01:34:24.645Z">
+<meta property="og:image" content="https://i.ibb.co/k1GYHnj/The-Top-15-Databases-For-Web-Apps-696x232.png">
+<meta property="article:published_time" content="2024-05-06T06:04:20.000Z">
+<meta property="article:modified_time" content="2024-05-06T09:01:05.937Z">
 <meta property="article:author" content="Anna Chu">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="NoSQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/k1GYHnj/The-Top-15-Databases-For-Web-Apps-696x232.png">
   
     <link rel="alternate" href="/annachu-blog/atom.xml" title="Anna&#39;s Blog" type="application/atom+xml">
   
@@ -80,13 +84,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+          <article id="post-database" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      about
+      SQL and NoSQL 該怎麼選？
     </h1>
   
 
@@ -95,20 +99,102 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/annachu-blog/about/index.html" class="article-date"><time datetime="2024-03-26T10:29:39.000Z" itemprop="datePublished">2024-03-26</time></a>
+  <a href="/annachu-blog/2024/05/06/database/" class="article-date"><time datetime="2024-05-06T06:04:20.000Z" itemprop="datePublished">2024-05-06</time></a>
 </div>
 
     
     
+  <div class="article-category">
+    <a class="article-category-link" href="/annachu-blog/categories/Database/">Database</a>
+  </div>
+
 
   </div>
   <div class="article-inner">
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Hello, I am Anna.</p>
-<p>當你感到疲憊時，<br>想著為什麼當初開始。</p>
-<p>或是喝一杯珍珠奶茶，<br>然後再去跑個馬拉松。</p>
+        <p>欸欸，你是用 MySQL嗎？還是你覺得應該用MongoDB？啊…還是應該…等等</p>
+<span id="more"></span>
+
+<p><img src="https://i.ibb.co/k1GYHnj/The-Top-15-Databases-For-Web-Apps-696x232.png" alt="Top 15 Databases To Use in 2023 For Web Applications -Ankit Sachan"></p>
+<p>當選擇資料庫技術時，確實會遇到多種問題和疑慮，這時候就不太適合獨自思考，而是應該與同事、主管以及 stackholders 一起討論，共同尋找最佳解決方案。</p>
+<p>以下是簡單了解基本特性，以及可以思考的面向：</p>
+<h3 id="SQL-Database-a-relational-database-RDBS"><a href="#SQL-Database-a-relational-database-RDBS" class="headerlink" title="SQL Database: a relational database (RDBS)"></a>SQL Database: a relational database (RDBS)</h3><ul>
+<li><p>Structured Query Language</p>
+</li>
+<li><p>以 <code>row 和 column</code> 方式儲存。每行代表一條記錄，每列代其中一屬性</p>
+</li>
+<li><p>透過外鍵 (Foreign-key) 來強制執行表格之間的關係</p>
+</li>
+<li><p>使用結構化查詢語言（SQL）來查詢和操作數據，包括 SELECT、INSERT、UPDATE、DELETE 等等</p>
+</li>
+<li><p>使用 JOIN 可以處理複雜的查詢</p>
+</li>
+<li><p>ACID 特性：原子性（Atomicity）、一致性（Consistency）、隔離性（Isolation）、持久性（Durability</p>
+</li>
+<li><p>較熱門的 SQL databases :</p>
+<ul>
+<li>MySQL (開源, GPL)</li>
+<li>PostgreSQL (開源, PostgreSQL)</li>
+<li>Microsoft SQL Server (商用, 免費版 Express)</li>
+<li>Oracle (商用, 免費版 Oracle XE)</li>
+<li>MariaDB (開源, LGPL, 為 MySQL 的分支)</li>
+</ul>
+</li>
+</ul>
+<h3 id="NoSQL-Database"><a href="#NoSQL-Database" class="headerlink" title="NoSQL Database"></a>NoSQL Database</h3><ul>
+<li><p>Not Only SQL</p>
+</li>
+<li><p>為 <code>Key, Value</code> 的方式存取，Key 為一個字串，Value 則可以是任意型別（整數、字元、陣列、集合)</p>
+</li>
+<li><p>不需要嚴格要求數據結構，可以很靈活地儲存各種 data type and format</p>
+</li>
+<li><p>未支援傳統資料庫 ACID 的特性，而是遵守 BASE 模型特性: 基本上可用 (Basically Availible)、軟狀態 (Soft State)、最終一致 (Eventually Consistent)</p>
+</li>
+<li><p>多種類型的 NoSQL</p>
+<ul>
+<li>Key-Value Store<ul>
+<li>頻繁讀寫的簡單資料模型，內容適合暫時存放的資料</li>
+<li><a target="_blank" rel="noopener" href="https://redis.io/">Redis</a> (開源, BSD; 企業版)</li>
+</ul>
+</li>
+<li>Document Store: <ul>
+<li>以「Document」這個概念，使用的編碼包括 XML 、 YAML 、 JSON 、 BSON (Binary JSON) 等，而內容沒有標準的模式</li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/">MongoDB</a> (開源, AGPL; 企業版)</li>
+</ul>
+</li>
+<li>Graph Store<ul>
+<li>紀錄每個節點與線之間的關係，專門處理高度相互關聯的關係資料，適合用於社交網路，也適合推薦系統、路經尋找等問題</li>
+<li><a target="_blank" rel="noopener" href="https://neo4j.com/">Neo4J</a> (開源, AGPL; 企業版)</li>
+</ul>
+</li>
+<li>Wide Column Store<ul>
+<li>可以單獨新增修改 Column 到每一個 Row</li>
+<li><a target="_blank" rel="noopener" href="https://cassandra.apache.org/_/index.html">Cassandra</a> (開源, Apache; 企業版)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="有優勢也有劣勢"><a href="#有優勢也有劣勢" class="headerlink" title="有優勢也有劣勢"></a>有優勢也有劣勢</h3><p>簡單來說，<br><code>SQL</code> 使用結構化查詢語言，非常適合複雜的數據處理任務。學習容易，適合初學者。SQL數據庫在水平擴展上存在困難，垂直擴展成本較高。較適合結構化數據，若數據經常變動或非結構化，管理起來較為困難。</p>
+<p><code>NoSQL</code> 較能夠輕鬆實現水平擴展，支持快速更新或查詢大量數據。易於管理複雜的數據結構。支持多種非結構化數據，如音視頻記錄和自然語言文本。如需要 ACID 特性可能就不適合。</p>
+<h3 id="思考的關鍵因素"><a href="#思考的關鍵因素" class="headerlink" title="思考的關鍵因素"></a>思考的關鍵因素</h3><ul>
+<li>Database Scalability：業務成長帶來的數據量增加</li>
+<li>Complexity of Data Structure：是否具有多變的資料結構</li>
+<li>Query Performance and Optimization：主要操作是大量讀寫還是複雜的查詢</li>
+<li>Development and Maintenance Costs：不同的 DB 技術在開發和維護的成本</li>
+<li>Tech Stack and Team Expertise：開發團隊對哪種 DB 技術更熟悉</li>
+<li>Community Support：可以幫助解決開發過程中遇到的問題</li>
+</ul>
+<hr>
+
+<p>Reference:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.astera.com/knowledge-center/sql-vs-nosql/">SQL vs NoSQL: 5 Main Differences</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.scalablepath.com/back-end/sql-vs-nosql">When to Use NoSQL vs SQL: The Ultimate Guide for Choosing a Database</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mobulous.com/blog/top-15-databases-to-use-in-2023-for-web-applications/">Top 15 Databases To Use in 2023 For Web Applications</a></li>
+</ul>
 
       
     </div>
@@ -119,16 +205,30 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://anna0118.github.io/annachu-blog/about/index.html" data-id="clvuqs64k0000fh4l0dfvbu5t" class="article-share-link">
+      <a data-url="https://anna0118.github.io/annachu-blog/2024/05/06/database/" data-id="clvuqs64p0001fh4l05sb47at" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/NoSQL/" rel="tag">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/annachu-blog/tags/SQL/" rel="tag">SQL</a></li></ul>
+
 
     </footer>
   </div>
   
     
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/annachu-blog/2024/05/04/docker-start/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">在 Mac 安裝 Docker</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
 
   
 </article>
