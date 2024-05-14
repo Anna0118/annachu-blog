@@ -32,22 +32,22 @@ $ brew install --cask docker
 >
 >brew cask 是 brew 的其中一個套件，主要是可以透過 homebrew 的 API 來安裝許多 MAC 的 GUI 軟體，所以安裝成功後，可以在 Applicationsa 目錄看到，就像過往將 App 拖曳到 Application 資料夾底下手動安裝的方式，只是幫你省去了這一段！
 
-![安裝成功](https://i.postimg.cc/tTLBrpCX/2024-05-04-6-58-41.png)
+![安裝成功](https://i.postimg.cc/pLYZpszR/2024-05-04-6-58-41.png)
 
 #### 3. 到 Applicationsa 打開 Docker
 
-![第一次打開時會需要你的作業系統密碼，以及需要會員註冊登入](https://i.postimg.cc/MpDrzCtD/2024-05-04-5-58-05.png)
+![第一次打開時會需要你的作業系統密碼，以及需要會員註冊登入](https://i.postimg.cc/SRss7vYC/2024-05-04-5-58-05.png)
 
 #### 4. Docker Desktop
 
-![目前 Containers 和 Images 是空的](https://i.postimg.cc/8kZ5rccQ/2024-05-04-7-09-16.png)
+![目前 Containers 和 Images 是空的](https://i.postimg.cc/gjZydsG9/2024-05-04-7-09-16.png)
 
 
 以上，是不是很簡單呢 ?
 
 也可透過 `brew list` 或  `brew list --cast` 列出透過 homebrew 安裝的套件或App
 
-![使用 brew list --cast 來查看](https://i.postimg.cc/0NYh3VBg/2024-05-04-7-23-27.png)
+![使用 brew list --cast 來查看](https://i.postimg.cc/NfR8zdNm/2024-05-04-7-23-27.png)
 
 <hr>
 

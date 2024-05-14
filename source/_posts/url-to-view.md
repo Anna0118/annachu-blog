@@ -6,12 +6,13 @@ tags:
 categories: Web
 ---
 
-從輸入網址列到畫面出現，經歷了哪些過程？
+.....
 
 <!-- more -->
-撰寫文章時，請附上參考的文章連結。
 
-不過不用擔心，會拆分成以下的小任務
+{%asset_img https___dev-to-uploads.s3.amazonaws.com_i_tdh7cegujnmooj33clf4.avif url-to-view}
+
+https://www.quora.com/What-happens-when-you-type-Google-in-a-web-browser-address-bar-and-press-enter
 
 Q1：**什麼是域名解析 (DNS Lookup)，**什麼是**域名 (Domain Name)？域名如何轉成 IP?**
 
